@@ -13,14 +13,10 @@ import FAQ from './Pages/FAQ';
 import Voting from './Pages/Voting';
 import Main from './Pages/Main';
 
-
-
-
 function App() {
   
   const [showInfoCenterLink, setShowInfoCenterLink] = useState(false);
   const [name, setName] = useState("")
-
   const handleSuccessfulLogin = (name) => {
     setShowInfoCenterLink(true);
     localStorage.setItem('name', name); 
@@ -48,9 +44,6 @@ function App() {
       </div>
       <a href="/Main" style={{color:"white", textDecoration:'none', marginLeft:'31.5%'}}><h4>Главная страница </h4></a>
       </Navbar>
-
-      
-
       <Routes>
         <Route index element={<Login onShowPage={handleSuccessfulLogin}></Login>} />
         <Route path='/Main' element={<Main  />} />
@@ -63,5 +56,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
