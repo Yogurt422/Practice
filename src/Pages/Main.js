@@ -2,7 +2,7 @@ import './Main.css'
 
 
 
-function Main (){g
+function Main (){
     const [token, setToken] = useState(localStorage.getItem('token') || null); 
     const [role, setRole] = useState(localStorage.getItem('role') || null);
 
