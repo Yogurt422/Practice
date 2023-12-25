@@ -2,7 +2,25 @@ import './Main.css'
 
 
 
-function Main (){
+function Main (){g
+    const [token, setToken] = useState(localStorage.getItem('token') || null); 
+    const [role, setRole] = useState(localStorage.getItem('role') || null);
+
+    useEffect(() => { 
+        const storedToken = localStorage.getItem('token'); 
+        const storedRole = localStorage.getItem('role'); 
+         
+        if (location.state && location.state.token && location.state.role) { 
+          setToken(location.state.token); 
+          setRole(location.state.role); 
+          localStorage.setItem('token', location.state.token); 
+          localStorage.setItem('role', location.state.role); 
+        } else if (storedToken && storedRole) { 
+          setToken(storedToken); 
+          setRole(storedRole); 
+        } 
+      }, [location.state]);
+
     return(
     <div style={{marginRight:"auto", marginLeft:"auto", marginTop:"10%", width:"50%", textAlign:"center" }}>
         <a href='/News' style={{textDecoration:'none'}}>
