@@ -2,25 +2,25 @@ import './Main.css'
 import React, { useState, useEffect } from 'react'; 
 import { useLocation } from 'react-router-dom';
 
-
 function Main (){
     const [token, setToken] = useState(localStorage.getItem('token') || null); 
     const [role, setRole] = useState(localStorage.getItem('role') || null);
+    const location = useLocation(); // Use useLocation directly in the component
 
     useEffect(() => { 
         const storedToken = localStorage.getItem('token'); 
         const storedRole = localStorage.getItem('role'); 
-         
+        
         if (location.state && location.state.token && location.state.role) { 
-          setToken(location.state.token); 
-          setRole(location.state.role); 
-          localStorage.setItem('token', location.state.token); 
-          localStorage.setItem('role', location.state.role); 
+            setToken(location.state.token); 
+            setRole(location.state.role); 
+            localStorage.setItem('token', location.state.token); 
+            localStorage.setItem('role', location.state.role); 
         } else if (storedToken && storedRole) { 
-          setToken(storedToken); 
-          setRole(storedRole); 
+            setToken(storedToken); 
+            setRole(storedRole); 
         } 
-      }, [location.state]);
+    }, [location.state]);
 
     return(
     <div style={{marginRight:"auto", marginLeft:"auto", marginTop:"10%", width:"50%", textAlign:"center" }}>
